@@ -1,3 +1,13 @@
-<% @questions.each do |question| %>
-  <%= question.name %>
-<% end %>
+<div class="questions">
+  <% @questions.each do |question| %>
+    <div class="question">
+      <h2><%= question.name %></h2>
+      <ul class="responses">
+        <% question.responses.each do |response| %>
+          <li><%= response.text %></li>
+        <% end %>
+      </ul>
+      <%= render "responses/form", response: question.responses.build %>
+    </div>
+  <% end %>
+</div>
