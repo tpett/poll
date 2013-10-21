@@ -5,13 +5,13 @@ class ApplicationController < ActionController::Base
   protected
 
   def current_responder
-    @responder ||= Responder.where(id: cookies.permanent[:responder_id]).first ||
+    @responder ||= Responder.where(cookie_key: cookies.permanent[:responder_id]).first ||
       create_current_responder
   end
 
   def create_current_responder
     @responder = Responder.create!(ip_address: request.remote_ip)
-    cookies.permanent[:responder_id] = @responder.id
+    cookies.permanent[:responder_id] = @responder.cookie_key
     @responder
   end
 
