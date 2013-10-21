@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 gem 'coffee-rails', '~> 4.0.0'
+gem 'foreigner'
 gem 'jbuilder', '~> 1.2'
 gem 'jquery-rails'
 gem 'pg'
