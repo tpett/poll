@@ -4,7 +4,13 @@
       <h2><%= question.name %></h2>
       <ul class="responses">
         <% question.responses.each do |response| %>
-          <li><%= response.text %></li>
+          <li>
+            <%= response.text.capitalize %>
+            <span class="badge"><%= response.up_votes.count %></span>
+            <% if current_responder.can_respond?(response) %>
+              <%= link_to "+1", response_up_votes_path(response), method: :post, class: "btn btn-xs btn-primary" %>
+            <% end %>
+          </li>
         <% end %>
       </ul>
       <%= render "responses/form", response: question.responses.build %>

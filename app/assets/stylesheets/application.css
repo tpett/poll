@@ -11,3 +11,11 @@
  *= require_self
  *= require_tree .
  */
+
+ul.responses {
+  list-style: none;
+}
+
+ul.responses li {
+  margin: 1em;
+}
