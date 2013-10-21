@@ -2,11 +2,10 @@ class ResponsesController < ApplicationController
 
   def create
     @response = Response.new(response_params.merge(responder: current_responder))
-    if @response.save
-      redirect_to questions_path
-    else
-      flash[:alert] = "Oh noes! I couldn't create your response: #{@response.errors.to_sentence}"
+    unless @response.save
+      flash[:alert] = "Oh noes! I couldn't create your response: #{@response.errors.full_messages.to_sentence}"
     end
+    redirect_to questions_path
   end
 
   private

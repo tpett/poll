@@ -12,10 +12,18 @@
  *= require_tree .
  */
 
+.centered {
+  text-align: center;
+}
+
 ul.responses {
   list-style: none;
 }
 
 ul.responses li {
   margin: 1em;
+}
+
+section#content {
+  margin: 1.5em;
 }

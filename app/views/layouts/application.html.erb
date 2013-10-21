@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Poll</title>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-	<meta name="charset" content="utf-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<%= csrf_meta_tags %>
-	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
-	<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <title>Poll</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="charset" content="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <%= csrf_meta_tags %>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
 </head>
 <body>
-	<div class="container">
-		<header class="row">
-		</header>
-		<section id="content" class="row">
-			<%= yield %>
-		</section>
-		<footer class="row">
-		</footer>
-	</div>
-	<script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <div class="container">
+    <header class="row">
+    </header>
+    <section id="content" class="row">
+      <% if flash[:notice] %>
+        <div class="alert alert-info"><%= flash[:notice] %></div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="alert alert-danger"><%= flash[:alert] %></div>
+      <% end %>
+      <%= yield %>
+    </section>
+    <footer class="row">
+    </footer>
+  </div>
+  <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 </body>
 </html>

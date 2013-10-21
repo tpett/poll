@@ -1,5 +1,7 @@
 <%= simple_form_for response do |f| %>
-  <%= f.input :text, label: "I don't see my topic:" %>
+  <%= f.input :text, label: "I don't see my topic listed" %>
   <%= f.input :question_id, as: :hidden %>
-  <%= f.button :submit, "Add My Topic", class: "btn-primary" %>
+  <div class="centered">
+    <%= f.button :submit, "Add My Topic", class: "btn-primary btn-lg" %>
+  </div>
 <% end %>
