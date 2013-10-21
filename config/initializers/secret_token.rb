@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Poll::Application.config.secret_key_base = 'ee0ff5c0717c0035c827e637ce4381d162883d9ac2c8958fdda0c59b209ea9f992b349d2412a6a8437972659b5a5a1518abfb73391180f1b07ba17054cdc724c'
+Poll::Application.config.secret_key_base = ENV['SECRET_KEY']
